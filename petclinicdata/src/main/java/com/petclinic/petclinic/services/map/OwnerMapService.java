@@ -1,11 +1,12 @@
 package com.petclinic.petclinic.services.map;
 
 import com.petclinic.petclinic.models.Owner;
-import com.petclinic.petclinic.services.CrudService;
+import com.petclinic.petclinic.services.OwnerService;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Set;
 
-public class OwnerMapService extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override
     public Owner save(Owner object) {
         return super.save(object.getId(), object);
@@ -29,5 +30,10 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        throw new NotImplementedException();
     }
 }
