@@ -2,7 +2,6 @@ package com.petclinic.petclinic.services.map;
 
 import com.petclinic.petclinic.models.Owner;
 import com.petclinic.petclinic.services.OwnerService;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Set;
 
@@ -34,6 +33,6 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findByLastName(String lastName) {
-        throw new NotImplementedException();
+        return null;
     }
 }
