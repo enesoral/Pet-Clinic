@@ -30,7 +30,7 @@ public class DataInitializer implements CommandLineRunner {
         Owner owner2 = new Owner();
         owner2.setId(2L);
         owner2.setFirstName("Hasan");
-        owner2.setFirstName("Oral");
+        owner2.setLastName("Oral");
 
         ownerService.save(owner2);
 
