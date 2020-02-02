@@ -4,8 +4,6 @@ import com.petclinic.petclinic.models.Owner;
 import com.petclinic.petclinic.models.Vet;
 import com.petclinic.petclinic.services.OwnerService;
 import com.petclinic.petclinic.services.VetService;
-import com.petclinic.petclinic.services.map.OwnerMapService;
-import com.petclinic.petclinic.services.map.VetMapService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +13,9 @@ public class DataInitializer implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataInitializer() {
-        ownerService = new OwnerMapService();
-        vetService = new VetMapService();
+    public DataInitializer(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
