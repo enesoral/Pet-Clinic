@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="layout (template, menu)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="#{petclinic}">Pet Clinic</title>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.png}">
+    <link rel="stylesheet" th:href="@{/css/petclinic.css}"/>
+
+    <link href="webjars/bootstrap/4.4.1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="webjars/font-awesome/4.3.0/css/font-awesome.min.css"
+          th:href="@{/webjars/font-awesome/4.3.0/css/font-awesome.min.css}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top text-uppercase" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand logo" href="/" th:text="#{petclinic}">Pet Clinic</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link py-3 px-0 px-lg-3" href="/" th:text="#{home}">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3" href="/owners/index" th:text="#{owners}">Owners</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3" href="/vets/index" th:text="#{veterinarians}">Vets</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <th:block th:include="${template}"/>
+
+        <br/>
+        <br/>
+    </div>
+
+    <footer class="page-footer font-small bg-dark darken-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 py-5">
+                    <div class="mb-5 flex-center text-center">
+                        <a class="li-ic" href="https://www.linkedin.com/in/enesoral/" target="_blank" style="color:#ffff00">
+                            <i class="fa fa-linkedin fa-lg white-text pr-pd-5 pr-3 fa-2x"> </i>
+                        </a>
+
+                        <a class="gi-ic" href="https://github.com/enesoral" target="_blank" style="color:#ffff00">
+                            <i class="fa fa-github fa-lg white-text fa-2x"> </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3" style="color:white">
+            <a href="http://www.enesoral.com/" target="_blank" style="color:#d4c602">enesoral.com</a> | © 2020
+            Copyright
+        </div>
+    </footer>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
