@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Vets</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'vets')}">
+
 <body>
-    <h1 th:text="'Vets'">Vet Index Page</h1>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Ad</th>
-            <th scope="col">Soyad</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="vet : ${vets}">
-            <td th:text="${vet.getId()}">1</td>
-            <td th:text="${vet.getFirstName()}">Tekir</td>
-            <td th:text="${vet.getLastName()}">As</td>
-        </tr>
-        </tbody>
-    </table>
+
+    <div class="limiter mt-2">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100">
+                    <table class="vet-table" style="width:100%">
+                        <thead>
+                        <tr class="table100-head">
+                            <th class="column2-1" th:text="#{name}">Name</th>
+                            <th class="column2-2" th:text="#{specialties}">Specialties</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="vet : ${vets}">
+                            <td th:text="${vet.getFirstName() + ' ' + vet.getLastName()}">Tekir</td>
+                            <td>İlk Müdahale</td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

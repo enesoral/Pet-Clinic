@@ -242,6 +242,10 @@ tbody tr:hover {
     content: "Address";
   }
 
+  .vet-table tr td:nth-child(2):before {
+    content: "Specialties";
+  }
+
   table tbody tr td:nth-child(3):before {
     content: "City";
   }
