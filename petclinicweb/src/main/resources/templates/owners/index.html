@@ -20,10 +20,10 @@
                         <tbody>
                         <tr th:each="owner : ${owners}">
                             <td th:text="${owner.getFirstName() + ' ' + owner.getLastName()} ">Ahmet</td>
-                            <td>1336 sk. No:5 Daire:4 Gürçeşme-Konak</td>
-                            <td>İzmir</td>
-                            <td>0553 978 43 21</td>
-                            <td>Oreo</td>
+                            <td th:text="${owner.getAddress()}">1336 sk. No:5 Daire:4 Gürçeşme-Konak</td>
+                            <td th:text="${owner.getCity()}">İzmir</td>
+                            <td th:text="${owner.getTelephone()}">0553 978 43 21</td>
+                            <td><span th:each="pet : ${owner.pets}" th:text="${pet.name} + '-'"/></td>
                             <td><a href="#" class="btn btn-outline-secondary" th:text="#{editOwner}">Edit Owner</a></td>
                         </tbody>
                     </table>
