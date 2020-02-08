@@ -3,7 +3,7 @@
 
 <body>
 
-    <div class="limiter mt-2">
+    <div class="limiter">
         <div class="container-table100">
             <div class="wrap-table100">
                 <div class="table100">
@@ -16,8 +16,8 @@
                         </thead>
                         <tbody>
                         <tr th:each="vet : ${vets}">
-                            <td th:text="${vet.getFirstName() + ' ' + vet.getLastName()}">Tekir</td>
-                            <td>İlk Müdahale</td>
+                            <td th:text="${vet.getFirstName() + ' ' + vet.getLastName()}">Alex</td>
+                            <td><span th:each="speciality : ${vet.getSpecialities()}" th:text="${speciality.getName() + '-'}">Surgery</span></td>
                         </tbody>
                     </table>
                 </div>
