@@ -46,15 +46,15 @@ public class DataInitializer implements CommandLineRunner {
         dog.setName("bird");
         PetType saveBirdPetType = petTypeService.save(bird);
 
-        Speciality radiology = new Speciality();
+        Specialty radiology = new Specialty();
         radiology.setName("Radiology");
         radiology = specialityService.save(radiology);
 
-        Speciality surgery = new Speciality();
+        Specialty surgery = new Specialty();
         surgery.setName("Surgery");
         surgery = specialityService.save(surgery);
 
-        Speciality dentistry = new Speciality();
+        Specialty dentistry = new Specialty();
         dentistry.setName("Dentistry");
         dentistry = specialityService.save(dentistry);
 
