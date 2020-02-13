@@ -1,10 +1,7 @@
 package com.petclinic.petclinic.bootstrap;
 
 import com.petclinic.petclinic.models.*;
-import com.petclinic.petclinic.services.OwnerService;
-import com.petclinic.petclinic.services.PetTypeService;
-import com.petclinic.petclinic.services.SpecialtyService;
-import com.petclinic.petclinic.services.VetService;
+import com.petclinic.petclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +14,14 @@ public class DataInitializer implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialityService;
+    private final VisitService visitService;
 
-    public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialityService) {
+    public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -39,11 +38,11 @@ public class DataInitializer implements CommandLineRunner {
         PetType saveDogPetType = petTypeService.save(dog);
 
         PetType cat = new PetType();
-        dog.setName("cat");
+        cat.setName("cat");
         PetType saveCatPetType = petTypeService.save(cat);
 
         PetType bird = new PetType();
-        dog.setName("bird");
+        bird.setName("bird");
         PetType saveBirdPetType = petTypeService.save(bird);
 
         Specialty radiology = new Specialty();
@@ -111,6 +110,21 @@ public class DataInitializer implements CommandLineRunner {
         owner3.getPets().add(jonathanPet);
 
         ownerService.save(owner3);
+
+        Visit enesPetVisit = new Visit();
+        enesPetVisit.setPet(enesPet);
+        enesPetVisit.setDate(LocalDate.now());
+        enesPetVisit.setDescription("Sneezy Kitty");
+
+        visitService.save(enesPetVisit);
+
+        Visit mikesPetVisit = new Visit();
+        mikesPetVisit.setPet(mikesPet);
+        mikesPetVisit.setDate(LocalDate.now());
+        mikesPetVisit.setDescription("Sneezy Doggy");
+
+        visitService.save(mikesPetVisit);
+
 
         Vet vet1 = new Vet();
         vet1.setId(1L);
