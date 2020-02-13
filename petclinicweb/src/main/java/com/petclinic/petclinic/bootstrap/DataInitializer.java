@@ -58,7 +58,6 @@ public class DataInitializer implements CommandLineRunner {
         dentistry = specialityService.save(dentistry);
 
         Owner owner1 = new Owner();
-        owner1.setId(1L);
         owner1.setFirstName("Enes");
         owner1.setLastName("Oral");
         owner1.setAddress("1336 sk. No:4 Gürçeşme");
@@ -74,7 +73,6 @@ public class DataInitializer implements CommandLineRunner {
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner2.setId(2L);
         owner2.setFirstName("Michael");
         owner2.setLastName("Weston");
         owner2.setAddress("9583 SE. Valley View Street");
@@ -96,7 +94,6 @@ public class DataInitializer implements CommandLineRunner {
         ownerService.save(owner2);
 
         Owner owner3 = new Owner();
-        owner3.setId(3L);
         owner3.setFirstName("Jonathan");
         owner3.setLastName("Rodd");
         owner3.setAddress("1101 Independence Ave SE");
@@ -127,7 +124,6 @@ public class DataInitializer implements CommandLineRunner {
 
 
         Vet vet1 = new Vet();
-        vet1.setId(1L);
         vet1.setFirstName("Sam");
         vet1.setLastName("Axe");
         vet1.getSpecialities().add(radiology);
@@ -135,7 +131,6 @@ public class DataInitializer implements CommandLineRunner {
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
-        vet2.setId(2L);
         vet2.setFirstName("Jessie");
         vet2.setLastName("Porter");
         vet2.getSpecialities().add(surgery);
