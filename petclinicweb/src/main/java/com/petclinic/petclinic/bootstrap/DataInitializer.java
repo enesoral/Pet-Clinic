@@ -3,7 +3,7 @@ package com.petclinic.petclinic.bootstrap;
 import com.petclinic.petclinic.models.*;
 import com.petclinic.petclinic.services.OwnerService;
 import com.petclinic.petclinic.services.PetTypeService;
-import com.petclinic.petclinic.services.SpecialityService;
+import com.petclinic.petclinic.services.SpecialtyService;
 import com.petclinic.petclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -16,9 +16,9 @@ public class DataInitializer implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
-    private final SpecialityService specialityService;
+    private final SpecialtyService specialityService;
 
-    public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialityService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
