@@ -9,8 +9,31 @@
 <body>
     <th:block th:insert="fragments/layout :: header"></th:block>
 
+
     <div class="limiter">
         <div class="container-table100">
+            <form th:object="${owner}" th:action="@{/owners}" method="get">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input class="form-control" th:field="*{lastName}" size="30"
+                                   maxlength="30" placeholder="Owner last name..."/>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-secondary">Find Owner</button>
+                            <span class="help-inline">
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div th:if="${#fields.hasAnyErrors()}">
+                            <p th:each="err : ${#fields.allErrors()}" th:text="${err}" class="error">Error</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
             <div class="wrap-table100">
                 <div class="table100">
                     <table class="table owners-table" style="width:100%">
@@ -21,13 +44,14 @@
                             <th class="column3" th:text="#{city}">City</th>
                             <th class="column4" th:text="#{telephone}">Telephone</th>
                             <th class="column5" th:text="#{pets}">Pets</th>
-                            <th class="column6"></th>
+                            <th class="column6"><a class="btn btn-success" th:href="@{/owners/new}">Add Owner</a></th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="owner : ${owners}">
                             <td>
-                                <a th:href="@{'/owners/' + ${owner.getId()} + '/detail'}" th:text="${owner.getFirstName() + ' ' + owner.getLastName()}"></a>
+                                <a th:href="@{'/owners/' + ${owner.getId()} + '/detail'}"
+                                   th:text="${owner.getFirstName() + ' ' + owner.getLastName()}"></a>
                             </td>
                             <td th:text="${owner.getAddress()}">1336 sk. No:5 Daire:4 Gürçeşme-Konak</td>
                             <td th:text="${owner.getCity()}">İzmir</td>
