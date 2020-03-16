@@ -2,8 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:replace="fragments/layout :: head"></th:block>
-    <link rel="stylesheet" th:href="@{/css/petclinic.css}"/>
-    <title>Vets</title>
+    <link rel="stylesheet" th:href="@{/css/table.css}"/>
+    <link rel="stylesheet" th:href="@{/css/table-extra.css}"/>
+    <title th:text="#{veterinarians}"></title>
 </head>
 <body>
     <th:block th:insert="fragments/layout :: header"></th:block>
@@ -12,7 +13,7 @@
         <div class="container-table100">
             <div class="wrap-table100">
                 <div class="table100">
-                    <table class="vet-table" style="width:100%">
+                    <table class="vets-table" style="width:100%">
                         <thead>
                         <tr class="table100-head">
                             <th class="column2-1" th:text="#{name}">Name</th>
