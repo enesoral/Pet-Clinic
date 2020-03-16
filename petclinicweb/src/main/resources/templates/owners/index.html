@@ -26,7 +26,9 @@
                         </thead>
                         <tbody>
                         <tr th:each="owner : ${owners}">
-                            <td th:text="${owner.getFirstName() + ' ' + owner.getLastName()} ">Ahmet</td>
+                            <td>
+                                <a th:href="@{'/owners/' + ${owner.getId()} + '/detail'}" th:text="${owner.getFirstName() + ' ' + owner.getLastName()}"></a>
+                            </td>
                             <td th:text="${owner.getAddress()}">1336 sk. No:5 Daire:4 Gürçeşme-Konak</td>
                             <td th:text="${owner.getCity()}">İzmir</td>
                             <td th:text="${owner.getTelephone()}">0553 978 43 21</td>
