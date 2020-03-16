@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="layout (template, menu)">
-<head>
+<head th:fragment="head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title th:text="#{petclinic}">Pet Clinic</title>
     <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.png}">
-    <link rel="stylesheet" th:href="@{/css/petclinic.css}"/>
-
+    <link rel="stylesheet" th:href="@{/css/layout.css}"/>
     <link href="webjars/bootstrap/4.4.1/css/bootstrap.min.css"
           th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}" rel="stylesheet">
     <link href="webjars/font-awesome/4.3.0/css/font-awesome.min.css"
           th:href="@{/webjars/font-awesome/4.3.0/css/font-awesome.min.css}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top text-uppercase" id="mainNav">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top text-uppercase" id="mainNav"
+         th:fragment="header">
         <div class="container">
             <a class="navbar-brand logo" href="/" th:text="#{petclinic}">Pet Clinic</a>
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,20 +39,13 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
-        <br/>
-
-        <th:block th:include="${template}"/>
-
-        <br/>
-    </div>
-
-    <footer class="page-footer font-small bg-dark darken-3">
+    <footer class="page-footer font-small bg-dark darken-3" th:fragment="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 py-5">
                     <div class="mb-5 flex-center text-center">
-                        <a class="li-ic" href="https://www.linkedin.com/in/enesoral/" target="_blank" style="color:#ffff00">
+                        <a class="li-ic" href="https://www.linkedin.com/in/enesoral/" target="_blank"
+                           style="color:#ffff00">
                             <i class="fa fa-linkedin fa-lg white-text pr-pd-5 pr-3 fa-2x"> </i>
                         </a>
 
@@ -67,10 +61,11 @@
             <a href="http://www.enesoral.com/" target="_blank" style="color:#d4c602">enesoral.com</a> | © 2020
             Copyright
         </div>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </footer>
 
-    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-    <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
 </body>
 </html>

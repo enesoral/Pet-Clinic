@@ -1,7 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'vets')}">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/layout :: head"></th:block>
+    <link rel="stylesheet" th:href="@{/css/petclinic.css}"/>
+    <title>Vets</title>
+</head>
 <body>
+    <th:block th:insert="fragments/layout :: header"></th:block>
 
     <div class="limiter">
         <div class="container-table100">
@@ -17,12 +22,15 @@
                         <tbody>
                         <tr th:each="vet : ${vets}">
                             <td th:text="${vet.getFirstName() + ' ' + vet.getLastName()}">Alex</td>
-                            <td><span th:each="speciality : ${vet.getSpecialities()}" th:text="${speciality.getName() + '-'}">Surgery</span></td>
+                            <td><span th:each="speciality : ${vet.getSpecialities()}"
+                                      th:text="${speciality.getName() + '-'}">Surgery</span></td>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+
+    <th:block th:insert="fragments/layout :: footer"></th:block>
 </body>
 </html>

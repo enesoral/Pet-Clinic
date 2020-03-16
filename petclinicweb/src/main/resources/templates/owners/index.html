@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'owners')}">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/layout :: head"></th:block>
+    <link rel="stylesheet" th:href="@{/css/petclinic.css}"/>
+    <title>Owners</title>
+</head>
 <body>
+    <th:block th:insert="fragments/layout :: header"></th:block>
+
     <div class="limiter">
         <div class="container-table100">
             <div class="wrap-table100">
                 <div class="table100">
-                    <table class="table" style="width:100%">
+                    <table class="table owners-table" style="width:100%">
                         <thead>
                         <tr class="table100-head">
                             <th class="column1" th:text="#{name}">Name</th>
@@ -32,5 +38,6 @@
         </div>
     </div>
 
+    <th:block th:insert="fragments/layout :: footer"></th:block>
 </body>
 </html>

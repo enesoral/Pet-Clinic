@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 
-<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/layout :: head"></th:block>
+    <link rel="stylesheet" th:href="@{/css/petclinic.css}" />
+    <title th:text="#{welcome}"></title>
+</head>
 
 <body>
+    <th:block th:replace="fragments/layout :: header"></th:block>
     <div class="container-fluid">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -31,5 +37,6 @@
             </a>
         </div>
     </div>
+    <th:block th:replace="fragments/layout :: footer"></th:block>
 </body>
 </html>
