@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/layout :: head"></th:block>
+    <title th:with="text=${owner['new']} ? 'Add Owner' : 'Update Owner'"
+           class="btn btn-success btn-lg float-right" type="submit" th:text="${text}"></title>
+</head>
+<body>
+    <th:block th:insert="fragments/layout :: header"></th:block>
+
+    <div class="container-fluid bg-light">
+        <div class="container mt-2 ">
+            <form th:object="${owner}" class="form-horizontal" id="add-owner-form" method="post">
+                <div class="form-group has-feedback">
+                    <input th:replace="~{fragments/inputField :: input ('First Name', 'firstName', 'text')}"/>
+                    <input th:replace="~{fragments/inputField :: input ('Last Name', 'lastName', 'text')}"/>
+                    <input th:replace="~{fragments/inputField :: input ('Address', 'address', 'text')}"/>
+                    <input th:replace="~{fragments/inputField :: input ('City', 'city', 'text')}"/>
+                    <input th:replace="~{fragments/inputField :: input ('Telephone', 'telephone', 'text')}"/>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <button th:with="text=${owner['new']} ? 'Add Owner' : 'Update Owner'"
+                                    class="btn btn-success btn-lg float-right" type="submit" th:text="${text}">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <th:block th:insert="fragments/layout :: footer"></th:block>
+</body>
+</html>
