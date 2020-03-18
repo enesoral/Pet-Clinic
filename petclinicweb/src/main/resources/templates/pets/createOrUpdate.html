@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:insert="fragments/layout :: head"></th:block>
+    <title th:with="text=${pet['new']} ? 'Add Pet' : 'Update Pet'"
+           class="btn btn-success btn-lg float-right" type="submit" th:text="${text}"></title>
+</head>
+<body>
+    <th:block th:insert="fragments/layout :: header"></th:block>
+
+    <div class="container-fluid">
+        <div class="container mt-2 bg-light">
+            <form th:object="${pet}" class="form-horizontal" method="post">
+                <input type="hidden" name="id" th:value="*{id}" />
+                <div class="form-group has-feedback">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Owner</label>
+                        <div class="col-sm-10">
+                            <span th:text="${pet.owner?.firstName + ' ' + pet.owner?.lastName}" class="lead"/>
+                        </div>
+                    </div>
+                    <input th:replace="~{fragments/inputField :: input ('Name', 'name', 'text')}" />
+                    <input th:replace="~{fragments/inputField :: input ('Birth Date', 'birthDate', 'date')}" />
+                    <input th:replace="~{fragments/selectField :: select ('Type', 'petType', ${petTypes})}" />
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button th:with="text=${pet['new']} ? 'Add Pet' : 'Update Pet'"
+                                class="btn btn-success btn-lg" type="submit" th:text="${text}">AddPet</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <th:block th:insert="fragments/layout :: footer"></th:block>
+</body>
+</html>
