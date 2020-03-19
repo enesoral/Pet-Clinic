@@ -64,7 +64,6 @@ public class PetController {
             model.addAttribute("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
-            System.out.println(pet.getName()  + "     "  + pet.getOwner().getFirstName());
             petService.save(pet);
             return "redirect:/owners/" + owner.getId() + "/detail";
         }

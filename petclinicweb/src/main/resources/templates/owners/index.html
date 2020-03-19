@@ -54,7 +54,7 @@
                             <td th:text="${owner.getAddress()}">1336 sk. No:5 Daire:4 Gürçeşme-Konak</td>
                             <td th:text="${owner.getCity()}">İzmir</td>
                             <td th:text="${owner.getTelephone()}">0553 978 43 21</td>
-                            <td><span th:each="pet : ${owner.pets}" th:text="${pet.name} + '-'"/></td>
+                            <td th:text="${owner.pets.size()}"></td>
                             <td><a th:href="@{'/owners/' + ${owner.getId()} + '/detail'}"
                                    class="btn btn-outline-secondary">Details</a></td>
                         </tbody>
